@@ -6,10 +6,12 @@ import { Timeline } from "antd";
 
 type RequestListProps = {
   filteredrequests: Request[];
+  selectedRequest: number;
 };
 
 const RequestList: React.FC<RequestListProps> = (props) => {
   const { filteredrequests } = props;
+  const { selectedRequest } = props;
 
   useEffect(() => {}, [filteredrequests]);
 
@@ -40,6 +42,8 @@ const RequestList: React.FC<RequestListProps> = (props) => {
               key={request.id}
               request={request}
               dayOn={isDayOn(index)}
+              selectedRequest = {selectedRequest}
+              index = {index}
             />
           );
         })}
